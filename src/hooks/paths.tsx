@@ -3,7 +3,7 @@ import { Groups, HomeDash, Major, Students, Teachers } from "../pages/Dashboard"
 
 export const paths = {
     home: "/",
-    sigin: "sign-in",
+    sigin: "/sign-in",
     teachers: "/teachers",
     students: "/students",
     groups: "/groups",
