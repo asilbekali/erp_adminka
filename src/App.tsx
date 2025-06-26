@@ -1,12 +1,12 @@
 import './App.css'
+import { AuthRoute, DashboardRoute } from './routes'
 
 function App() {
 
-  return (
-    <>
+  const token = false
 
-    </>
-  )
+  return token ? <DashboardRoute /> : <AuthRoute />
+
 }
 
 export default App
