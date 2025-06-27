@@ -19,24 +19,24 @@ const SigninForm: React.FC = () => {
             },
             body: JSON.stringify(value)
         })
-            .then(res => {
+            .then(async (res) => {
+                const data = await res.json();
                 if (!res.ok) {
-                    throw new Error("Failed to login");
+                    // Backenddan kelgan xabarni chiqaramiz
+                    throw new Error(data.message || "An error occurred!");
                 }
-                return res.json();
+                return data;
             })
             .then(data => {
-                console.log(data);
-                if (data) {
+                setLoading(false);
+                if (data.success) {
                     setToken(true);
                     toast.success("Login successful!");
-                } else {
-                    toast.error(data.message || "User not found!");
                 }
             })
             .catch(error => {
                 setLoading(false);
-                toast.error(error.message || "An error occurred!");
+                toast.error(error.message || "User not found!");
             });
     };
 
