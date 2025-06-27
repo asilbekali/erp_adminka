@@ -1,8 +1,5 @@
-import { DashboardRouteList } from "../hooks/paths"
 
 const DashboardRoute = () => {
-  console.log(DashboardRouteList);
-
   return (
     <div>salom</div>
     // <Routes>

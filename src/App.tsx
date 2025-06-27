@@ -7,10 +7,6 @@ function App() {
 
   const token = useContext(Context)
 
-
-  console.log(token);
-
-
   return token.token ? <DashboardRoute /> : <AuthRoute />
 
 }
