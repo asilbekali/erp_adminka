@@ -33,12 +33,12 @@ const SigninForm: React.FC = () => {
             <Form.Item
                 name="password"
                 rules={[{ required: true, message: 'Please input your Password!' }]}>
-                <Input
+                <Input.Password
                     size="large"
                     prefix={<LockOutlined />}
-                    type="password"
                     placeholder="Password"
                     autoComplete="off"
+                    visibilityToggle
                 />
             </Form.Item>
 
