@@ -9,7 +9,6 @@ const SigninForm: React.FC = () => {
     const { setToken } = useContext(Context);
 
     const onFinish = (value: any) => {
-        console.log(value);
         setLoading(true);
 
         fetch("http://54.210.160.235/user/login", {
@@ -22,17 +21,18 @@ const SigninForm: React.FC = () => {
             .then(async (res) => {
                 const data = await res.json();
                 if (!res.ok) {
-                    // Backenddan kelgan xabarni chiqaramiz
                     throw new Error(data.message || "An error occurred!");
                 }
                 return data;
             })
             .then(data => {
-                setLoading(false);
-                if (data.success) {
-                    setToken(true);
-                    toast.success("Login successful!");
-                }
+                toast.success("Login successful!");
+                setTimeout(() => {
+                    setLoading(false);
+                    if (data.accessToken) {
+                        setToken(true);
+                    }
+                }, 1000)
             })
             .catch(error => {
                 setLoading(false);

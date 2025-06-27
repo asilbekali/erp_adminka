@@ -1,5 +1,5 @@
 import { TeamOutlined, UngroupOutlined, UnorderedListOutlined, UserOutlined } from "@ant-design/icons"
-import { Groups, HomeDash, Major, Students, Teachers } from "../pages/Dashboard"
+import { Groups, Major, Students, Teachers, HomeDash } from "../pages/Dashboard"
 
 export const paths = {
     home: "/",
