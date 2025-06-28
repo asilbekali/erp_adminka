@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom"
-import { DashboardRouteList } from "../hooks/paths"
+import { DashboardRouteList, paths } from "../hooks/paths"
 import type { DashboardRouteType } from "../types/DashboardRouteType"
 
 const DashboardRoute = () => {
