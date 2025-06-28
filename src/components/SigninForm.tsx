@@ -1,34 +1,19 @@
 import React, { useContext, useState } from 'react';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Form, Input } from 'antd';
+import { Toaster } from 'react-hot-toast';
+import { Login } from '../service/Auth';
 import { Context } from '../context/Context';
-import toast, { Toaster } from 'react-hot-toast';
-import { inctanse } from '../hooks/inctanse';
+export interface ValuType { username: string, password: string }
 
 const SigninForm: React.FC = () => {
+    const { setToken } = useContext(Context)
     const [loading, setLoading] = useState<boolean>(false);
-    const { setToken } = useContext(Context);
 
-    const onFinish = (value: any) => {
+
+    const onFinish = (value: ValuType) => {
         setLoading(true);
-        inctanse
-            .post("/user/login", value)
-            .then((res) => {
-                const data = res.data;
-                if (!data.accessToken) {
-                    throw new Error(data.message || "An error occurred!");
-                }
-                toast.success("Login successful!");
-                setTimeout(() => {
-                    setToken(true);
-                }, 1000)
-            })
-            .catch((error) => {
-                toast.error(error.response?.data?.message || "User not found!");
-            })
-            .finally(() => {
-                setLoading(false);
-            });
+        Login(value, setLoading, setToken)
     };
 
     return (
