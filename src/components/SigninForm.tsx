@@ -3,6 +3,7 @@ import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Form, Input } from 'antd';
 import { Context } from '../context/Context';
 import toast, { Toaster } from 'react-hot-toast';
+import { inctanse } from '../hooks/inctanse';
 
 const SigninForm: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(false);
@@ -10,42 +11,29 @@ const SigninForm: React.FC = () => {
 
     const onFinish = (value: any) => {
         setLoading(true);
-
-        fetch("http://54.210.160.235/user/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(value)
-        })
-            .then(async (res) => {
-                const data = await res.json();
-                if (!res.ok) {
+        inctanse
+            .post("/user/login", value)
+            .then((res) => {
+                const data = res.data;
+                if (!data.accessToken) {
                     throw new Error(data.message || "An error occurred!");
                 }
-                return data;
-            })
-            .then(data => {
                 toast.success("Login successful!");
                 setTimeout(() => {
-                    setLoading(false);
-                    if (data.accessToken) {
-                        setToken(true);
-                    }
+                    setToken(true);
                 }, 1000)
             })
-            .catch(error => {
+            .catch((error) => {
+                toast.error(error.response?.data?.message || "User not found!");
+            })
+            .finally(() => {
                 setLoading(false);
-                toast.error(error.message || "User not found!");
             });
     };
 
     return (
         <>
-            <Toaster
-                position="top-center"
-                reverseOrder={false}
-            />
+            <Toaster position="top-center" reverseOrder={false} />
             <Form
                 name="login"
                 initialValues={{ remember: true }}
@@ -55,7 +43,6 @@ const SigninForm: React.FC = () => {
                     name="username"
                     rules={[{ required: true, message: 'Please input your Username!' }]}>
                     <Input
-                        name='username'
                         allowClear
                         size="large"
                         prefix={<UserOutlined />}
@@ -67,7 +54,6 @@ const SigninForm: React.FC = () => {
                     name="password"
                     rules={[{ required: true, message: 'Please input your Password!' }]}>
                     <Input.Password
-                        name='password'
                         size="large"
                         prefix={<LockOutlined />}
                         placeholder="Password"
@@ -76,7 +62,6 @@ const SigninForm: React.FC = () => {
                         allowClear
                     />
                 </Form.Item>
-
                 <Form.Item>
                     <Button
                         loading={loading}
