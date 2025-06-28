@@ -1,13 +1,19 @@
 import { useContext } from 'react'
 import './App.css'
-import { AuthRoute, DashboardRoute } from './routes'
+import { AuthRoute } from './routes'
 import { Context } from './context/Context'
+import DashboardLayout from './features'
 
 function App() {
 
+
+
   const token = useContext(Context)
 
-  return token.token ? <DashboardRoute /> : <AuthRoute />
+  console.log(token);
+
+
+  return token.token ? <DashboardLayout /> : <AuthRoute />
 
 }
 

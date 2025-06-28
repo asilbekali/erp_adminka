@@ -1,10 +1,12 @@
+import { Route, Routes } from "react-router-dom"
+import { DashboardRouteList } from "../hooks/paths"
+import type { DashboardRouteType } from "../types/DashboardRouteType"
 
 const DashboardRoute = () => {
   return (
-    <div>salom</div>
-    // <Routes>
-    //   {DashboardRouteList.map((item: DashboardRouteType) => <Route key={item.id} path={item.paths} element={item.element} />)}
-    // </Routes>
+    <Routes>
+      {DashboardRouteList.map((item: DashboardRouteType) => <Route key={item.id} path={item.paths} element={item.element} />)}
+    </Routes>
   )
 }
 

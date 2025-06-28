@@ -1,30 +1,25 @@
-import toast, { Toaster } from "react-hot-toast";
-import type { ValuType } from "../components/SigninForm"
-import { inctanse } from "../hooks/inctanse";
 import { type Dispatch, type SetStateAction } from "react";
+import { toast } from "react-hot-toast";
+import { inctanse } from "../hooks/inctanse";
+import type { ValueType } from "../components/SigninForm";
 
-
-
-export const Login = (data: ValuType, setLoading: Dispatch<SetStateAction<boolean>>, setToken: Dispatch<SetStateAction<boolean>>,) => {
-    inctanse.post("/user/login", data).then((res) => {
-        const data = res.data;
-        if (!data.accessToken) {
-            throw new Error(data.message || "An error occurred!");
-        }
-        toast.success("Login successful!");
+export const Login = (data: ValueType, setIsLoading: Dispatch<SetStateAction<boolean>>, setToken: Dispatch<SetStateAction<string | null>>, setCookie: any) => {
+    inctanse.post("/user/login", data).then(data => {
+        setIsLoading(false)
+        toast.success("Xush kelibsiz")
+        setCookie('token', data.data.accessToken)
         setTimeout(() => {
-            setToken(true);
-        }, 1000)
+            setToken(data.data.accessToken)
+            location.pathname = "/"
+        }, 800)
+    }).catch((err) => {
+        setIsLoading(false)
+        if (err?.response?.status == 400) {
+            toast.error("Foydalanuvchi topilmadi!")
+        }
+        else {
+            toast.error("Xatolik bor")
+        }
     })
-        .catch((error) => {
-            toast.error(error.response?.data?.message || "User not found!");
-        })
-        .finally(() => {
-            setTimeout(() => {
-                setLoading(false);
-            }, 750)
-        });
-
-
-    return <Toaster position="top-center" reverseOrder={false} />
+    return ""
 }

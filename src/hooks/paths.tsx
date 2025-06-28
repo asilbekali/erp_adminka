@@ -1,9 +1,10 @@
 import { TeamOutlined, UngroupOutlined, UnorderedListOutlined, UserOutlined } from "@ant-design/icons"
-import { Groups, Major, Students, Teachers, HomeDash } from "../pages/Dashboard"
+import { Groups, Major, Students, Teachers } from "../pages/Dashboard"
+import Home from "../pages/Dashboard/Home"
 
 export const paths = {
     home: "/",
-    sigin: "/sign-in",
+    sigin: "/sigin-in",
     teachers: "/teachers",
     students: "/students",
     groups: "/groups",
@@ -16,7 +17,7 @@ export const DashboardRouteList = [
     {
         id: 1,
         paths: paths.home,
-        element: <HomeDash />
+        element: <Home />
     },
     {
         id: 2,
@@ -41,27 +42,26 @@ export const DashboardRouteList = [
 ]
 
 
+
 export const DashboardNavList = [
     {
-        id: 1,
-        titile: "Yo'nalishlar",
-        icon: <UnorderedListOutlined />
+        key: "1",
+        label: "Yo'nalishlar",
+        icon: <UnorderedListOutlined />,
     },
     {
-        id: 2,
-        titile: "Guruhlar",
-        icon: <UngroupOutlined />
+        key: "2",
+        label: "Guruhlar",
+        icon: <UngroupOutlined />,
     },
     {
-        id: 3,
-        titile: "O'qivchilar",
-        icon: <TeamOutlined />
+        key: "3",
+        label: "O'quvchilar",
+        icon: <TeamOutlined />,
     },
     {
-        id: 4,
-        titile: "Ustozlar",
-        icon: <UserOutlined />
+        key: "4",
+        label: "Ustozlar",
+        icon: <UserOutlined />,
     },
-
-
-]
+];
