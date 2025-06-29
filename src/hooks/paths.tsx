@@ -1,7 +1,7 @@
 import { GroupCreate, GroupMore, Groups, Home, Major, MajorCreate, MajorMore, Students, Teachers } from "../pages/Dashboard"
 import { TeamOutlined, UngroupOutlined, UnorderedListOutlined, UserOutlined } from '@ant-design/icons';
-import { NavLink } from "react-router-dom";
 import NotFound from "../pages/Dashboard/NotFound";
+import { NavLink } from "react-router-dom";
 
 export const paths = {
     home: "/",

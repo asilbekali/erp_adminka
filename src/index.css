@@ -12,3 +12,13 @@
 .ant-input-outlined:hover {
     border-color: var(--clr-gold) !important;
 }
+
+.custom-menu .ant-menu-item:hover {
+    background: var(--clr-gold);
+    color: black;
+}
+
+.custom-menu .ant-menu-item-selected {
+    background: var(--clr-gold) !important;
+    color: white !important;
+}

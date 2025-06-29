@@ -6,7 +6,7 @@ const AuthRoute = () => {
     return (
         <Routes>
             <Route path={paths.home} element={<Home />} />
-            <Route path={paths.sigin} element={<Signin />} />
+            <Route path={paths.singIn} element={<Signin />} />
         </Routes>
     )
 }

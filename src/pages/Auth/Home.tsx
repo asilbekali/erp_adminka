@@ -6,7 +6,7 @@ const Home = () => {
 
   const navigate = useNavigate()
   useEffect(() => {
-    navigate(paths.sigin)
+    navigate(paths.singIn)
   }, [])
   return ""
 }

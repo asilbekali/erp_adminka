@@ -14,6 +14,7 @@ const NavbarCarusel = () => {
                 theme="dark"
                 inlineCollapsed={showNavbar}
                 items={DashboardNavList}
+                className="custom-menu" 
             />
         </div>
     );

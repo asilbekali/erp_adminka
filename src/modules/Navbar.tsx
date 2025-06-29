@@ -1,15 +1,15 @@
 import { useContext, useEffect, useState } from "react"
 import { Logo } from "../assets/icons"
 import { Context } from "../context/Context"
-import { inctanse } from "../hooks/inctanse"
 import NavbarCarusel from "../components/Navbarcarusel"
+import { instance } from "../hooks/inctanse"
 
 const Navbar = () => {
     const { token, showNavbar } = useContext(Context)
     const [role, setRole] = useState<string>("")
     useEffect(() => {
         if (token) {
-            inctanse("/user/me", { headers: { "Authorization": `Bearer ${token}` } }).then(res => {
+            instance("/user/me", { headers: { "Authorization": `Bearer ${token}` } }).then(res => {
                 setRole(res.data.role);
             })
         }
