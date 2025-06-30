@@ -3,7 +3,7 @@ import { TeamOutlined, UngroupOutlined, UnorderedListOutlined, UserOutlined } fr
 import NotFound from "../pages/Dashboard/NotFound";
 import { NavLink } from "react-router-dom";
 
-export const paths = {
+export const path = {
     home: "/",
     singIn: "/sign-in",
     major: "/major",
@@ -23,89 +23,89 @@ export const paths = {
 export const DashboardRouteList = [
     {
         id: 1,
-        path: paths.home,
+        path: path.home,
         element: <Home />
     },
     {
         id: 2,
-        path: paths.major,
+        path: path.major,
         element: <Major />
     },
     {
         id: 3,
-        path: paths.groups,
+        path: path.groups,
         element: <Groups />
     },
     {
         id: 4,
-        path: paths.students,
+        path: path.students,
         element: <Students />
     },
     {
         id: 5,
-        path: paths.teachers,
+        path: path.teachers,
         element: <Teachers />
     },
     {
         id: 6,
-        path: paths.notFound,
+        path: path.notFound,
         element: <NotFound />
     },
     {
         id: 7,
-        path: paths.majorCrud,
+        path: path.majorCrud,
         element: <MajorCreate />
     },
     {
         id: 8,
-        path: paths.majorMore,
+        path: path.majorMore,
         element: <MajorMore />
     },
     {
         id: 9,
-        path: paths.majorEdit,
+        path: path.majorEdit,
         element: <MajorCreate />
     },
     {
         id: 10,
-        path: paths.majorMoreCreateGroup,
+        path: path.majorMoreCreateGroup,
         element: <GroupCreate />
     },
     {
         id: 11,
-        path: paths.groupsCreate,
+        path: path.groupsCreate,
         element: <GroupCreate />
     },
     {
         id: 12,
-        path: paths.groupsMore,
+        path: path.groupsMore,
         element: <GroupMore />
     },
     {
         id: 13,
-        path: paths.groupsEdit,
+        path: path.groupsEdit,
         element: <GroupCreate />
     },
 ]
 export const DashboardNavList = [
     {
         key: 1,
-        label: <NavLink to={paths.major}>Yo'nalishlar</NavLink>,
+        label: <NavLink to={path.major}>Yo'nalishlar</NavLink>,
         icon: <UnorderedListOutlined />,
     },
     {
         key: 2,
-        label: <NavLink to={paths.groups}>Guruxlar</NavLink>,
+        label: <NavLink to={path.groups}>Guruxlar</NavLink>,
         icon: <UngroupOutlined />
     },
     {
         key: 3,
-        label: <NavLink to={paths.students}>O'quvchilar</NavLink>,
+        label: <NavLink to={path.students}>O'quvchilar</NavLink>,
         icon: <TeamOutlined />
     },
     {
         key: 4,
-        label: <NavLink to={paths.teachers}>Ustozlar</NavLink>,
+        label: <NavLink to={path.teachers}>Ustozlar</NavLink>,
         icon: <UserOutlined />
     },
 ]

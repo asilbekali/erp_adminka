@@ -1,12 +1,12 @@
 import { Route, Routes } from "react-router-dom"
-import { paths } from "../hooks/paths"
 import { Home, Signin } from "../pages/Auth"
+import { path } from "../hooks/paths"
 
 const AuthRoute = () => {
     return (
         <Routes>
-            <Route path={paths.home} element={<Home />} />
-            <Route path={paths.singIn} element={<Signin />} />
+            <Route path={path.home} element={<Home />} />
+            <Route path={path.singIn} element={<Signin />} />
         </Routes>
     )
 }

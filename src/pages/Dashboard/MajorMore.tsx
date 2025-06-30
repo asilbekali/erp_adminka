@@ -1,7 +1,13 @@
+import { useNavigate } from "react-router-dom"
+import { path } from "../../hooks/paths"
 
 const MajorMore = () => {
+  const navigate = useNavigate()
   return (
-    <div>MajorMore</div>
+    <>
+      <button className="m-[50px] border-[1px] border-red-500 p-[5px]" onClick={() => navigate(path.major)}>Back</button>
+      <p>must be endend this section !</p>
+    </>
   )
 }
 

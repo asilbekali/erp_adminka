@@ -1,7 +1,7 @@
 import { Menu } from "antd";
-import { DashboardNavList } from "../hooks/paths";
 import { useContext } from "react";
 import { Context } from "../context/Context";
+import { DashboardNavList } from "../hooks/paths";
 
 const NavbarCarusel = () => {
     const { showNavbar } = useContext(Context);
@@ -14,7 +14,7 @@ const NavbarCarusel = () => {
                 theme="dark"
                 inlineCollapsed={showNavbar}
                 items={DashboardNavList}
-                className="custom-menu" 
+                className="custom-menu"
             />
         </div>
     );

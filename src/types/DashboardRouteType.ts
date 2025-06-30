@@ -2,6 +2,6 @@ import type { ReactNode } from "react";
 
 export interface DashboardRouteType {
     id: number;
-    paths: string;
+    path: string;
     element: ReactNode;
 }
